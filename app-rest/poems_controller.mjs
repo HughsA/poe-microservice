@@ -1,10 +1,13 @@
 import 'dotenv/config';
 import * as poems from './poems_model.mjs';
 import express from 'express';
+import cors from 'cors';
 
 const PORT = process.env.PORT;
 
 const app = express();
+
+app.use(cors());
 
 /**
 * @param {string} str
