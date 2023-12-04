@@ -1,0 +1,56 @@
+### Request 1: Create an poem
+POST http://localhost:5000/poems HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Silence",
+    "poem": "    "
+}
+
+### Request 2.1: Create another poem
+POST http://localhost:5000/poems HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Cookie",
+    "poem": "14"
+}
+
+### Request 2.2: Create another poem
+POST http://localhost:5000/poems HTTP/1.1
+content-type: application/json
+
+{
+    "name": "A Winter Delight",
+    "poem": "This is another test poem, <br>not written by Edgar Allen Poe as well. Quite sad."
+}
+
+
+### Request 3: Retrieve all should return the 3 poems we just created
+GET http://localhost:5000/poems HTTP/1.1
+
+### Request 4: Retrieve by ID should return the "" poem
+### Note: Update the value of _id in the following URL to what was assigned to the poem
+GET http://localhost:5000/poems/65657e0e2807cb82fcf17429/ HTTP/1.1
+
+
+###Request 5: Edit the poems. 
+### Note: Update the value of _id in the following URL to what was assigned to the current "poem"
+PUT http://localhost:5000/poems/65657e0e2807cb82fcf17429/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Cookie",
+    "poem": "Delicious, but also not a poem. <br>This is another test input."
+}
+
+### Request 6: Verify changes, additions and updates
+GET http://localhost:5000/poems HTTP/1.1
+
+
+### Request 7: Delete the "poem" Cookie
+### Note: Update the value of _id in the following URL to what was assigned to the Deadlift
+DELETE http://localhost:5000/poems/65657e922807cb82fcf17437/ HTTP/1.1
+
+### Request 8: Verify that the "poem" has been deleted
+GET http://localhost:5000/poems HTTP/1.1
